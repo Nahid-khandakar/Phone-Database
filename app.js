@@ -20,33 +20,41 @@ const searchButton = () => {
 
 const displayPhone = (phones) => {
 
-    const mainContainer = document.getElementById('main');
+    if (phones.length > 0) {
+        console.log(phones.length)
+        const mainContainer = document.getElementById('main');
 
-    for (const phone of phones) {
-        console.log(phone)
+        for (const phone of phones) {
 
-        const div = document.createElement('div')
-        div.classList.add('col-lg-4')
-        div.innerHTML = `
-
-
-            <div class="card p-4 border bg-light w-100">
-
-                <img  class="w-50 mx-auto" src="${phone.image}" class="card-img-top" alt="...">
-
-                <div class="card-body mt-2">
+            const div = document.createElement('div')
+            div.classList.add('col-lg-4')
+            div.innerHTML = `
+    
+    
+                <div class="card p-4 border bg-light w-100">
+    
+                    <img  class="w-50 mx-auto" src="${phone.image}" class="card-img-top" alt="...">
+    
+                    <div class="card-body mt-2">
+                        
+                        <h3 class="card-title">${phone.phone_name}</h3>
+                        <h4 class="card-title">Brand: ${phone.brand}</h4>
+    
+                        <button type="button" class="btn btn-warning text-center mt-2">More Details . . .</button>
+                      
+                    </div>
                     
-                    <h3 class="card-title">${phone.phone_name}</h3>
-                    <h4 class="card-title">Brand: ${phone.brand}</h4>
-
-                    <button type="button" class="btn btn-warning text-center mt-2">More Details . . .</button>
-                  
                 </div>
-                
-            </div>
-
-        `;
-        mainContainer.appendChild(div)
+    
+            `;
+            mainContainer.appendChild(div)
+        }
+        console.log('pukpuk')
     }
+    else {
+        document.getElementById('error-box').style.display = 'block'
+        console.log('tuktuk')
+    }
+
 
 }
