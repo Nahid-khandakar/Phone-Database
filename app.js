@@ -64,5 +64,34 @@ const getPhoneId = (phoneId) => {
 }
 
 const displayPhoneDetails = (phoneDetails) => {
+
+
     console.log(phoneDetails)
+    // console.log(phoneDetails.name)
+    // console.log(phoneDetails.brand)
+    // console.log(phoneDetails.releaseDate)
+    // console.log(phoneDetails.mainFeatures.storage)
+    // console.log(phoneDetails.others.GPS)
+    // console.log(phoneDetails.others.WLAN)
+    // console.log(phoneDetails.others.Bluetooth)
+    const detailsContainer = document.getElementById("details-container");
+    detailsContainer.textContent = '';
+    const div = document.createElement('div')
+    div.innerHTML = `
+
+    <div class="card mx-2">
+        <img src="${phoneDetails.image}" class="card-img-top w-50" alt="...">
+
+        <div class="card-body mb-4">
+            <h5 class="card-title">name:${phoneDetails.name}</h5>
+            <h5 class="card-title">Brand:${phoneDetails.brand}</h5>
+            <h5 class="card-title">Release Date:${phoneDetails.releaseDate}</h5>
+
+            <button onclick=""> Main Page</button>
+        </div>
+    </div>
+
+    `;
+    detailsContainer.appendChild(div);
+
 }
