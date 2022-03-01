@@ -71,27 +71,22 @@ const getPhoneId = (phoneId) => {
 const displayPhoneDetails = (phoneDetails) => {
 
 
-    console.log(phoneDetails)
-    // console.log(phoneDetails.name)
-    // console.log(phoneDetails.brand)
-    // console.log(phoneDetails.releaseDate)
-    // console.log(phoneDetails.mainFeatures.storage)
-    // console.log(phoneDetails.others.GPS)
-    // console.log(phoneDetails.others.WLAN)
-    // console.log(phoneDetails.others.Bluetooth)
     const detailsContainer = document.getElementById("details-container");
     detailsContainer.textContent = '';
     const div = document.createElement('div')
+    //there is a problem with release date
     div.innerHTML = `
 
-    <div class="card mx-2">
-        <img src="${phoneDetails.image}" class="card-img-top w-50" alt="...">
+    <div class="col-lg-6 col-12  card mx-auto">
 
-        <div class="card-body mb-4">
+        <img src="${phoneDetails.image}" class="card-img-top w-50 mx-auto mt-3" alt="...">
+
+        <div class="card-body">
             <h5 class="card-title">name:${phoneDetails.name}</h5>
             <h5 class="card-title">Brand:${phoneDetails.brand}</h5>
-            <h5 class="card-title">Release Date:${phoneDetails.releaseDate}</h5>
-
+    
+            <h5 class="card-title">Release Date:${phoneDetails?.releaseDate ?? "not found"}</h5>
+            <h5 class="card-title">sensor:${Object.values(phoneDetails.mainFeatures.sensors)}</h5>
             <button onclick="blockDisplay()"> Main Page</button>
         </div>
     </div>
