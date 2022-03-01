@@ -61,6 +61,8 @@ const getPhoneId = (phoneId) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayPhoneDetails(data.data))
+
+    document.getElementById('details-container').style.display = 'block'
 }
 
 const displayPhoneDetails = (phoneDetails) => {
@@ -87,11 +89,15 @@ const displayPhoneDetails = (phoneDetails) => {
             <h5 class="card-title">Brand:${phoneDetails.brand}</h5>
             <h5 class="card-title">Release Date:${phoneDetails.releaseDate}</h5>
 
-            <button onclick=""> Main Page</button>
+            <button onclick="blockDisplay()"> Main Page</button>
         </div>
     </div>
 
     `;
     detailsContainer.appendChild(div);
 
+}
+
+const blockDisplay = () => {
+    document.getElementById('details-container').style.display = 'none'
 }
