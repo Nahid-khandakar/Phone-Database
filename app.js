@@ -21,7 +21,6 @@ const searchButton = () => {
 const displayPhone = (phones) => {
 
     if (phones.length > 0) {
-        console.log(phones.length)
         const mainContainer = document.getElementById('main');
 
         for (const phone of phones) {
@@ -40,7 +39,7 @@ const displayPhone = (phones) => {
                         <h3 class="card-title">${phone.phone_name}</h3>
                         <h4 class="card-title">Brand: ${phone.brand}</h4>
     
-                        <button type="button" class="btn btn-warning text-center mt-2">More Details . . .</button>
+                        <button onclick="getPhoneId('${phone.slug}')" type="button" class="btn btn-warning text-center mt-2">More Details . . .</button>
                       
                     </div>
                     
@@ -49,12 +48,21 @@ const displayPhone = (phones) => {
             `;
             mainContainer.appendChild(div)
         }
-        console.log('pukpuk')
     }
     else {
         document.getElementById('error-box').style.display = 'block'
-        console.log('tuktuk')
     }
+}
+//set slug ,slug data come form more delatlis button 
 
+const getPhoneId = (phoneId) => {
+    const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`
 
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayPhoneDetails(data.data))
+}
+
+const displayPhoneDetails = (phoneDetails) => {
+    console.log(phoneDetails)
 }
