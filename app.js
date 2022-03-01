@@ -7,6 +7,9 @@ const searchButton = () => {
     //clean main contain for search another contain
     document.getElementById('main').textContent = "";
 
+    //clean phone details 
+    document.getElementById('details-container').textContent = "";
+
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
 
     fetch(url)
