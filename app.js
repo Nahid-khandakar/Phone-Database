@@ -91,10 +91,14 @@ const displayPhoneDetails = (phoneDetails) => {
             <h5>Main Features</h5>
 
             <ul>
-            <li>${phoneDetails.mainFeatures.storage}</li>
-            <li>${phoneDetails.mainFeatures.displaySize}</li>
-            <li>${phoneDetails.mainFeatures.chipSet}</li>
-            <li>${phoneDetails.mainFeatures.memory}</li>
+
+            <li><b>Storage</b> <br> ${phoneDetails.mainFeatures.storage ? phoneDetails.mainFeatures.storage : "Not found"}</li>
+
+            <li><b>Display Size</b> <br> ${phoneDetails.mainFeatures.displaySize ? phoneDetails.mainFeatures.displaySize : "Not found"}</li>
+
+            <li><b>ChipSet</b> <br> ${phoneDetails.mainFeatures.chipSet ? phoneDetails.mainFeatures.chipSet : "Not found"}</li>
+
+            <li><b>Memory</b> <br> ${phoneDetails.mainFeatures.memory ? phoneDetails.mainFeatures.memory : "Not found"}</li>
             </ul>
 
             <hr>
@@ -107,6 +111,7 @@ const displayPhoneDetails = (phoneDetails) => {
 
             <h5>Others</h5>
 
+            
             <ul>
             <li>Wlan: ${phoneDetails.others.WLAN ? phoneDetails.others.WLAN : "Not Found"}</li>
             <li>Bluetooth: ${phoneDetails.others.Bluetooth ? phoneDetails.others.Bluetooth : "Not Found"}</li>
@@ -118,7 +123,7 @@ const displayPhoneDetails = (phoneDetails) => {
 
             <hr>
 
-            <button onclick="blockDisplay()"> Main Page</button>
+            <button onclick="blockDisplay()" class="btn btn-warning mx-auto"> Main Page</button>
         </div>
     </div>
 
