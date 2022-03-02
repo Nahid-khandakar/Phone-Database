@@ -4,7 +4,7 @@ const searchButton = () => {
     const inputValue = input.value;
 
     if (isNaN(inputValue) == false || inputValue == "") {
-        alert('f');
+        alert('Text Only');
         input.value = '';
     }
 
@@ -18,18 +18,11 @@ const searchButton = () => {
 
     }
 
-
-
-
-
     //clean main contain for search another contain
     document.getElementById('main').textContent = "";
 
     //clean phone details 
     document.getElementById('details-container').textContent = "";
-
-
-
 }
 
 //display all phone in 3 colunm
@@ -46,7 +39,7 @@ const displayPhone = (phones) => {
             div.innerHTML = `
     
     
-                <div class="card p-4 border bg-light w-100">
+                <div class="card p-4 border bg-light w-100 bg-white">
     
                     <img  class="w-50 mx-auto" src="${phone.image}" class="card-img-top" alt="...">
     
@@ -103,9 +96,9 @@ const displayPhoneDetails = (phoneDetails) => {
     const div = document.createElement('div')
     div.innerHTML = `
 
-    <div class="col-lg-6 col-12  card mx-auto">
+    <div class="col-lg-6 col-12 shadow-lg card mx-auto">
 
-        <img src="${phoneDetails.image}" class="card-img-top w-50 mx-auto mt-3" alt="...">
+        <img src="${phoneDetails.image}" class="card-img-top w-50 mx-auto mt-5 p-2" alt="...">
 
         <div class="card-body">
             <h4>${phoneDetails.name}</h4>
@@ -114,7 +107,7 @@ const displayPhoneDetails = (phoneDetails) => {
 
             <hr>
             
-            <h5>Main Features</h5>
+            <h5 class="text-danger">Main Features</h5>
 
             <ul>
 
@@ -129,13 +122,13 @@ const displayPhoneDetails = (phoneDetails) => {
 
             <hr>
 
-            <h5>Sensor List</h5>
+            <h5 class="text-danger">Sensor List</h5>
 
             <p class="card-title">${Object.values(phoneDetails.mainFeatures.sensors ? phoneDetails.mainFeatures.sensors : "Sensor data not found")}</p>
 
             <hr>
 
-            <h5>Others</h5>
+            <h5 class="text-danger">Others</h5>
  
             <ul>
             <li>Wlan: ${checkOthers(phoneDetails?.others?.WLAN)}</li>
@@ -161,5 +154,4 @@ const displayPhoneDetails = (phoneDetails) => {
 const hideDetailsDisplay = () => {
     document.getElementById('details-container').style.display = 'none'
 }
-
 

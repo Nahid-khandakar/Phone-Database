@@ -16,10 +16,10 @@
 
 </head>
 
-<body>
+<body class="bg-light">
     <!-- header section -->
     <header>
-        <h1 class="text-center mt-2 mb-3">Phone Database</h1>
+        <h1 class="text-center mt-2 mb-3 text-warning">Phone Database</h1>
     </header>
 
     <main>
@@ -28,30 +28,37 @@
         <div class="container mt-2 mb-3">
             <div class="input-group    mx-auto">
 
-                <input id="input-value" type="text" class="form-control" placeholder="Phone-Name"
+                <input id="input-value" type="text" class="form-control" placeholder="phone name"
                     aria-label="Recipient's username" aria-describedby="button-addon2">
 
-                <button onclick="searchButton()" class="btn btn-outline-secondary" type="button"
+                <button onclick="searchButton()" class="btn btn-warning" type="button"
                     id="button-addon2">Search</button>
             </div>
         </div>
 
         <!-- Error message if phone did not found -->
 
-        <div id="error-box" class="card text-center mx-auto bg-danger" style="width: 50rem;">
-            <div class="card-body">
-                <h5 class="card-title text-center text-white mt-3">Your Search Item didn't match with our database ||
-                    Search
-                    Again </h5>
-                <br>
+        <div class="container mb-5">
+            <div class="row">
 
-                <a href="./index.html" class="btn btn-warning">Home Page</a>
+                <div id="error-box" class="card text-center mx-auto bg-danger col-lg-6 col-12" style="width: 50rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-white mt-3">Your Search Item didn't match with our
+                            database ||
+                            Search
+                            Again </h5>
+                        <br>
+
+                    </div>
+                    <a href="./index.html" class="btn btn-warning mb-4">Home Page</a>
+                </div>
+
             </div>
         </div>
 
         <!-- Display Phone All details -->
 
-        <div class="container mb-5">
+        <div class="container mb-5 ">
             <div id="details-container" class="row">
 
             </div>
