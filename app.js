@@ -2,7 +2,25 @@
 const searchButton = () => {
     const input = document.getElementById('input-value');
     const inputValue = input.value;
-    input.value = '';
+
+    if (isNaN(inputValue) == false || inputValue == "") {
+        alert('f');
+        input.value = '';
+    }
+
+    else {
+        const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
+        input.value = '';
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displayPhone(data.data))
+        document.getElementById('error-box').style.display = 'none'
+
+    }
+
+
+
+
 
     //clean main contain for search another contain
     document.getElementById('main').textContent = "";
@@ -10,12 +28,7 @@ const searchButton = () => {
     //clean phone details 
     document.getElementById('details-container').textContent = "";
 
-    const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`
 
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayPhone(data.data))
-    document.getElementById('error-box').style.display = 'none'
 
 }
 
@@ -26,7 +39,7 @@ const displayPhone = (phones) => {
     if (phones.length > 0) {
         const mainContainer = document.getElementById('main');
 
-        for (const phone of phones) {
+        for (const phone of phones.slice(0, 20)) {
 
             const div = document.createElement('div')
             div.classList.add('col-lg-4')
@@ -135,7 +148,7 @@ const displayPhoneDetails = (phoneDetails) => {
 
             <hr>
 
-            <button onclick="blockDisplay()" class="btn btn-warning mx-auto"> Main Page</button>
+            <button onclick="hideDetailsDisplay()" class="btn btn-warning mx-auto"> Main Page</button>
         </div>
     </div>
 
@@ -144,8 +157,9 @@ const displayPhoneDetails = (phoneDetails) => {
 
 }
 
-//Error message div
-const blockDisplay = () => {
+//details div hide
+const hideDetailsDisplay = () => {
     document.getElementById('details-container').style.display = 'none'
 }
+
 
