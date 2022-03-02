@@ -70,11 +70,11 @@ const getPhoneId = (phoneId) => {
 
 const displayPhoneDetails = (phoneDetails) => {
 
+    console.log(phoneDetails.slug)
 
     const detailsContainer = document.getElementById("details-container");
     detailsContainer.textContent = '';
     const div = document.createElement('div')
-    //there is a problem with release date
     div.innerHTML = `
 
     <div class="col-lg-6 col-12  card mx-auto">
@@ -82,11 +82,42 @@ const displayPhoneDetails = (phoneDetails) => {
         <img src="${phoneDetails.image}" class="card-img-top w-50 mx-auto mt-3" alt="...">
 
         <div class="card-body">
-            <h5 class="card-title">name:${phoneDetails.name}</h5>
-            <h5 class="card-title">Brand:${phoneDetails.brand}</h5>
-    
-            <h5 class="card-title">Release Date:${phoneDetails.releaseDate ? phoneDetails.releaseDate : "Release date not found"}</h5>
-            <h5 class="card-title">sensor:${Object.values(phoneDetails.mainFeatures.sensors ? phoneDetails.mainFeatures.sensors : "Sensor data not found")}</h5>
+            <h4>${phoneDetails.name}</h4>
+            <h5>Brand: ${phoneDetails.brand}</h5>
+            <h5>${phoneDetails.releaseDate ? phoneDetails.releaseDate : "Release date not found"}</h5>
+
+            <hr>
+            
+            <h5>Main Features</h5>
+
+            <ul>
+            <li>${phoneDetails.mainFeatures.storage}</li>
+            <li>${phoneDetails.mainFeatures.displaySize}</li>
+            <li>${phoneDetails.mainFeatures.chipSet}</li>
+            <li>${phoneDetails.mainFeatures.memory}</li>
+            </ul>
+
+            <hr>
+
+            <h5>Sensor List</h5>
+
+            <p class="card-title">${Object.values(phoneDetails.mainFeatures.sensors ? phoneDetails.mainFeatures.sensors : "Sensor data not found")}</p>
+
+            <hr>
+
+            <h5>Others</h5>
+
+            <ul>
+            <li>Wlan: ${phoneDetails.others.WLAN ? phoneDetails.others.WLAN : "Not Found"}</li>
+            <li>Bluetooth: ${phoneDetails.others.Bluetooth ? phoneDetails.others.Bluetooth : "Not Found"}</li>
+            <li>GPS :${phoneDetails.others.GPS ? phoneDetails.others.GPS : "Not Found"}</li>
+            <li>NFC :${phoneDetails.others.NFC ? phoneDetails.others.NFC : "Not Found"}</li>
+            <li>Radio :${phoneDetails.others.Radio ? phoneDetails.others.Radio : "Not Found"}</li>
+            <li>USB :${phoneDetails.others.USB ? phoneDetails.others.USB : "Not Found"}</li>
+            </ul>
+
+            <hr>
+
             <button onclick="blockDisplay()"> Main Page</button>
         </div>
     </div>
