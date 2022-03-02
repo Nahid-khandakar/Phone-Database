@@ -17,7 +17,6 @@ const searchButton = () => {
         document.getElementById('error-box').style.display = 'none'
 
     }
-
     //clean main contain for search another contain
     document.getElementById('main').textContent = "";
 
@@ -38,7 +37,6 @@ const displayPhone = (phones) => {
             div.classList.add('col-lg-4')
             div.innerHTML = `
     
-    
                 <div class="card p-4 border bg-light w-100 bg-white">
     
                     <img  class="w-50 mx-auto" src="${phone.image}" class="card-img-top" alt="...">
@@ -50,10 +48,8 @@ const displayPhone = (phones) => {
     
                         <button onclick="getPhoneId('${phone.slug}')" type="button" class="btn btn-warning text-center mt-2">More Details . . .</button>
                       
-                    </div>
-                    
+                    </div>   
                 </div>
-    
             `;
             mainContainer.appendChild(div)
         }
@@ -62,6 +58,7 @@ const displayPhone = (phones) => {
         document.getElementById('error-box').style.display = 'block'
     }
 }
+
 //set slug ,slug data come form more delatlis button 
 
 const getPhoneId = (phoneId) => {
@@ -73,7 +70,6 @@ const getPhoneId = (phoneId) => {
 
     document.getElementById('details-container').style.display = 'block'
 }
-
 
 //display details div 
 const displayPhoneDetails = (phoneDetails) => {
@@ -90,7 +86,7 @@ const displayPhoneDetails = (phoneDetails) => {
         }
     }
 
-    //details div
+    //Main details div
     const detailsContainer = document.getElementById("details-container");
     detailsContainer.textContent = '';
     const div = document.createElement('div')
@@ -154,4 +150,3 @@ const displayPhoneDetails = (phoneDetails) => {
 const hideDetailsDisplay = () => {
     document.getElementById('details-container').style.display = 'none'
 }
-
