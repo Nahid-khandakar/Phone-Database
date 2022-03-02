@@ -85,8 +85,8 @@ const displayPhoneDetails = (phoneDetails) => {
             <h5 class="card-title">name:${phoneDetails.name}</h5>
             <h5 class="card-title">Brand:${phoneDetails.brand}</h5>
     
-            <h5 class="card-title">Release Date:${phoneDetails?.releaseDate ?? "not found"}</h5>
-            <h5 class="card-title">sensor:${Object.values(phoneDetails.mainFeatures.sensors)}</h5>
+            <h5 class="card-title">Release Date:${phoneDetails.releaseDate ? phoneDetails.releaseDate : "Release date not found"}</h5>
+            <h5 class="card-title">sensor:${Object.values(phoneDetails.mainFeatures.sensors ? phoneDetails.mainFeatures.sensors : "Sensor data not found")}</h5>
             <button onclick="blockDisplay()"> Main Page</button>
         </div>
     </div>
