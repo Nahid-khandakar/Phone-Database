@@ -68,10 +68,23 @@ const getPhoneId = (phoneId) => {
     document.getElementById('details-container').style.display = 'block'
 }
 
+
+//display details div 
 const displayPhoneDetails = (phoneDetails) => {
 
-    console.log(phoneDetails.slug)
+    //check phone details object  other property
 
+    const othersdata = phoneDetails.others
+    const checkOthers = (othersdata) => {
+        if (othersdata == undefined) {
+            return 'No others data found'
+        }
+        else {
+            return othersdata
+        }
+    }
+
+    //details div
     const detailsContainer = document.getElementById("details-container");
     detailsContainer.textContent = '';
     const div = document.createElement('div')
@@ -110,15 +123,14 @@ const displayPhoneDetails = (phoneDetails) => {
             <hr>
 
             <h5>Others</h5>
-
-            
+ 
             <ul>
-            <li>Wlan: ${phoneDetails.others.WLAN ? phoneDetails.others.WLAN : "Not Found"}</li>
-            <li>Bluetooth: ${phoneDetails.others.Bluetooth ? phoneDetails.others.Bluetooth : "Not Found"}</li>
-            <li>GPS :${phoneDetails.others.GPS ? phoneDetails.others.GPS : "Not Found"}</li>
-            <li>NFC :${phoneDetails.others.NFC ? phoneDetails.others.NFC : "Not Found"}</li>
-            <li>Radio :${phoneDetails.others.Radio ? phoneDetails.others.Radio : "Not Found"}</li>
-            <li>USB :${phoneDetails.others.USB ? phoneDetails.others.USB : "Not Found"}</li>
+            <li>Wlan: ${checkOthers(phoneDetails?.others?.WLAN)}</li>
+            <li>Bluetooth: ${checkOthers(phoneDetails?.others?.Bluetooth)}</li>
+            <li>GPS: ${checkOthers(phoneDetails?.others?.GPS)}</li>
+            <li>NFC: ${checkOthers(phoneDetails?.others?.NFC)}</li>
+            <li>Radio: ${checkOthers(phoneDetails?.others?.Radio)}</li>
+            <li>USB: ${checkOthers(phoneDetails?.others?.USB)}</li>
             </ul>
 
             <hr>
@@ -132,6 +144,8 @@ const displayPhoneDetails = (phoneDetails) => {
 
 }
 
+//Error message div
 const blockDisplay = () => {
     document.getElementById('details-container').style.display = 'none'
 }
+
